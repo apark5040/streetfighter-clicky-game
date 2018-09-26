@@ -7,7 +7,12 @@ class App extends Component {
   state = {
     isClicked: [],
     image: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-    count: 0
+    count: 0,
+    message: ""
+  }
+
+  componentWillMount() {
+    this.setState({message: "Game Start!"});
   }
 
   //Used Fisher-Yates Shuffle logic
@@ -30,11 +35,19 @@ class App extends Component {
   handleClickChange = event => {
     if (this.state.isClicked.includes(event.target.getAttribute("dataid"))) {
       this.setState({count: 0});
+      this.setState({message: "Oops, try again!"});
     }
     else {
       this.state.isClicked.push(event.target.getAttribute("dataid"));
       this.setState({count: this.state.count +1});
-      this.shuffleImages();      
+      this.shuffleImages();
+      
+      if(this.state.count === 15){
+        this.setState({message: "You Win!"});
+      }
+      else {
+        this.setState({message: "Game Start!"});
+      }
     }
   }
 
@@ -42,13 +55,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header sticky-top">
-          <h1>Clicky Game</h1>
+          <h1>{this.state.message}</h1>
           <h2>Score: {this.state.count}</h2>
         </header>
         <div className="jumbotron jumbotron-fluid">
           <div className="container">
-            <h1 className="display-4">Fluid jumbotron</h1>
-            <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <h1 className="display-4 title">Street Fighter Click Game</h1>
+            <p className="lead">Click on one of the characters to earn a point. Don't click on the same character twice or you will lose your score.</p>
           </div>
         </div>
         <div className="container">
