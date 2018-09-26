@@ -15,13 +15,13 @@ class App extends Component {
     let i = 0;
     let j = 0;
     let temp = null;
-    let array = this.state.image
+    let array = this.state.image;
 
     for (i = array.length - 1; i > 0; i -= 1) {
-      j = Math.floor(Math.random() * (i + 1))
-      temp = array[i]
-      array[i] = array[j]
-      array[j] = temp
+      j = Math.floor(Math.random() * (i + 1));
+      temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
       this.setState({image: array});
     }
 
@@ -29,10 +29,11 @@ class App extends Component {
 
   handleClickChange = event => {
     if (this.state.isClicked.includes(event.target.getAttribute("dataid"))) {
-      alert("You already pressed this image.");
+      this.setState({count: 0});
     }
     else {
       this.state.isClicked.push(event.target.getAttribute("dataid"));
+      this.setState({count: this.state.count +1});
       this.shuffleImages();      
     }
   }
@@ -40,7 +41,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Clicky Game</h1>
+        <header className="App-header sticky-top">
+          <h1>Clicky Game</h1>
+          <h2>Score: {this.state.count}</h2>
+        </header>
         <div className="jumbotron jumbotron-fluid">
           <div className="container">
             <h1 className="display-4">Fluid jumbotron</h1>
@@ -66,6 +70,9 @@ class App extends Component {
             <Streetfighter onClick={this.handleClickChange} id={Fighters[this.state.image[14]].id} alt={Fighters[this.state.image[14]].name} image={Fighters[this.state.image[14]].image} />
           </div>
         </div>
+
+
+
       </div>
     );
   }
