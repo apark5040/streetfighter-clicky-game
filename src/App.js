@@ -36,6 +36,7 @@ class App extends Component {
     if (this.state.isClicked.includes(event.target.getAttribute("dataid"))) {
       this.setState({count: 0});
       this.setState({message: "Oops, try again!"});
+      this.setState({isClicked: []});
     }
     else {
       this.state.isClicked.push(event.target.getAttribute("dataid"));
@@ -44,6 +45,7 @@ class App extends Component {
       
       if(this.state.count === 15){
         this.setState({message: "You Win!"});
+        this.setState({isClicked: []});
       }
       else {
         this.setState({message: "Game Start!"});
