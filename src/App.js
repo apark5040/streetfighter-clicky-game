@@ -34,18 +34,15 @@ class App extends Component {
 
   handleClickChange = event => {
     if (this.state.isClicked.includes(event.target.getAttribute("dataid"))) {
-      this.setState({count: 0});
-      this.setState({message: "Oops, try again!"});
-      this.setState({isClicked: []});
+      this.setState({count: 0, message: "Oops, try again!", isClicked: []});
     }
     else {
       this.state.isClicked.push(event.target.getAttribute("dataid"));
       this.setState({count: this.state.count +1});
       this.shuffleImages();
       
-      if(this.state.count === 15){
-        this.setState({message: "You Win!"});
-        this.setState({isClicked: []});
+      if(this.state.count === 14){
+        this.setState({isClicked: [], count: 0, message: "You Win!"});
       }
       else {
         this.setState({message: "Game Start!"});
