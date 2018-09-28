@@ -19,3 +19,8 @@
 .title {
   font-family: 'Press Start 2P', cursive;
 }
+
+body {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
