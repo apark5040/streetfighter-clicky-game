@@ -15,3 +15,9 @@ This is Street Fighter themed memory game where you must click on all 15 charact
 The game starts when the page loads. When the user clicks on a character image, the images will shuffle around and the user will be granted a point. Clicking on the same character image twice will reset the score counter and the user will have to start all over. 
 
 ![sf-02](/gifs/SF02.gif)
+
+
+
+## Disclosure
+
+Street Fighter is a trademark of Capcom. This project is not  meant to endorse or sponser by the series and is intended only for project deminstration. 
