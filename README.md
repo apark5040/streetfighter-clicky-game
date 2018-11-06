@@ -20,4 +20,4 @@ The game starts when the page loads. When the user clicks on a character image, 
 
 ## Disclosure
 
-Street Fighter is a trademark of Capcom. This project is not  meant to endorse or sponser by the series and is intended only for project deminstration. 
+Street Fighter is a trademark of Capcom. This project is not meant to endorse or sponsor the series and is intended only for project demonstration. 
